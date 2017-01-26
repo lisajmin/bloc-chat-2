@@ -1,1 +1,8 @@
-<h1>Home Page</h1>
+<main class="side-bar">
+    <h1>Bloc Chat</h1>
+    <section class="chat-rooms">
+    <div ng-repeat="room in roomList">
+        <p>{{ room.$value }}</p>
+    </div>
+    </section>
+</main>
