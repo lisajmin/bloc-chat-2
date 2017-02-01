@@ -10,6 +10,14 @@
     background-color: skyblue;
     padding: 15px;
     width: 190px;
-    height: 1000px;
+    height: 610px;
     text-align: right;
+}
+
+.chat-rooms {
+    padding-top: 10px;
+}
+
+.cancel-button {
+    float: right;
 }
