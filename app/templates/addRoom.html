@@ -1,12 +1,15 @@
 <div class="modal-content">
     <div class="modal-header">
         <button class="cancel-button" type="button" ng-click="cancelRoom()">X</button>
-        <h4 class="modal-title">Room Name</h4>
+        <h4 class="modal-title">Create New Room</h4>
     </div>
   <div class="modal-body">
-    <form ng-submit="createRoom(room)">
-      <input type="text" ng-model="room" placeholder="Enter Room Name">
-      <button>Create Room</button>
+    <form class="create-room" ng-submit="createRoom(room)" id="submit">
+        <input type="text" ng-model="room" placeholder="Enter Room Name">
+        <button>Create Room</button>
+    </form>
+    <form class="cancel-room" ng-submit="cancelRoom()">
+        <button>Cancel</button>  
     </form>
   </div>
   <div class="modal-footer">

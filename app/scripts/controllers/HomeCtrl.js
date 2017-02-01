@@ -6,8 +6,7 @@
       	 $uibModal.open({
       		animation: true,
 	        templateUrl: '/templates/addRoom.html',
-	        controller: 'AddRoomCtrl',
-	        size: 'sm'
+	        controller: 'AddRoomCtrl'
      	  })
         };
     }

@@ -18,6 +18,18 @@
     padding-top: 10px;
 }
 
+.form-room {
+    width: 200px;
+}
+
 .cancel-button {
     float: right;
+}
+
+.create-room {
+    float: left;
+}
+
+.cancel-room {
+    padding-top: 1.2px;
 }
