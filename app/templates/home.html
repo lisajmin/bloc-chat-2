@@ -1,9 +1,7 @@
-<main class="side-bar">
+<section class="side-bar">
     <h1>Bloc Chat</h1>
     <button type="button" ng-click="addRoomModal()">New Room</button>
-    <section class="chat-rooms">
-    <div ng-repeat="room in roomList">
-        <p>{{ room.$value }}</p>
+    <div class="chat-rooms" ng-repeat="room in roomList">
+        <p>{{ room.name }}</p>
     </div>
-    </section>
-</main>
+</section>
