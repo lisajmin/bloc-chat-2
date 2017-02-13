@@ -4,6 +4,7 @@
             if (username !== undefined) {
             $cookies.put('blocChatCurrentUser', username);
             $uibModalInstance.close();
+            window.location.reload();
             } else {
                 alert("Please enter a username");
             }

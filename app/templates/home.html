@@ -1,9 +1,14 @@
 <section class="side-bar">
-    <h1>Bloc Chat</h1>
-    <button type="button" ng-click="addRoomModal()">New Room</button>
+    <h1 class="project-name">Bloc Chat</h1>
+    <button class="new-room" type="button" ng-click="addRoomModal()">Create Room</button>
     <div class="chat-rooms" ng-repeat="room in roomList" ng-click="setCurrentRoom(room)">
         <p>{{ room.name }}</p>
     </div>
+</section>
+
+<section class="footer">
+    <p>Logged on as: <span style="color:white; font-weight: bold;">{{ currentUser }}</span></p>
+        <button class="log-out" ng-click="logOut()">Log Out</button>
 </section>
 
 <section class="currentRoom">
@@ -11,7 +16,12 @@
         <h3>{{ currentRoom.name }}</h3>
     </div>
     <div class="chat-messages" ng-repeat="message in messages">
-        <p>{{ message.username }} @ {{message.sentAt }}</p>
-        <p>{{ message.content }}</p>
+        <p class="user-info">{{message.sentAt | date:' MMM dd y, hh:mm a' }}</p>
+        <p> <span style="color:cadetblue; font-weight: bold;"> {{ message.username }}: </span>  {{ message.content }}</p>
+    </div>
+    
+    <div class="new-message">
+        <input type="text" class="message-box" ng-model="newMessage" placeholder="Write your message here..." ng-keypress="($event.charCode==13)? sendMessage(currentRoom) : return"/>
+        <button class="message-button" ng-click="sendMessage(currentRoom)">Send</button>
     </div>
 </section>
