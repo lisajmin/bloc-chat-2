@@ -21,6 +21,7 @@
         $scope.sendMessage = function(room){
             Message.send($scope.newMessage, room.$id);
             $scope.newMessage = null;
+
         };
         
         $scope.logOut = function() {
