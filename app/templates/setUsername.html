@@ -1,13 +1,29 @@
 <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">Set a username</h4>
+        <h4 class="modal-title">Sign In</h4>
     </div>
   <div class="modal-body">
-    <form ng-submit="setUsername(username)">
-        <input type="text" ng-model="username" placeholder="Enter Username">
-        <button>Submit</button>
+    <form name="SignIn" ng-submit="user.validUser(SignIn.$valid)">
+        <div>
+            <p>Username: </p>
+            <input type="text" ng-model="user.username" name="username" placeholder="Username">
+        </div>
+        <div>
+            <p>Email adddress: </p>
+            <input type="email" ng-model="user.email" name="email" placeholder="Email">
+        </div>
+        <div>
+            <p>Password: </p>
+            <input type="password" ng-model="user.password" name="password">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
     </form>
   </div>
   <div class="modal-footer">
+      <div>
+        <button type="button" ng-click="user.newAccount()">Create Account</button>
+      </div>
   </div>
 </div>

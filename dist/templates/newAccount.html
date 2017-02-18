@@ -1,0 +1,26 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Create Account</h4>
+    </div>
+  <div class="modal-body">
+    <form name="NewAccount" ng-submit="new.validUser(NewAccount.$valid)">
+        <div>
+            <p>Username: </p>
+            <input type="text" ng-model="new.username" name="username" placeholder="Username">
+        </div>
+        <div>
+            <p>Email adddress: </p>
+            <input type="email" ng-model="new.email" name="email" placeholder="Email">
+        </div>
+        <div>
+            <p>Password: </p>
+            <input type="password" ng-model="new.password" name="password">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
