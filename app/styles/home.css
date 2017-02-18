@@ -7,6 +7,7 @@
 section {
     font-family: 'Roboto', sans-serif;
 }
+
 .side-bar {
     background-color: skyblue;
     padding: 15px;
@@ -45,6 +46,10 @@ section {
 
 .chat-rooms {
     padding-top: 10px;
+}
+
+.modal-title {
+    color: skyblue;
 }
 
 .footer {
@@ -97,6 +102,35 @@ section {
 .cancel-room {
     padding-top: 1.2px;
     display: inline-block;
+}
+
+.user-submit {
+    float: left;
+    height: 30px;
+    background-color: skyblue;
+    color: white;
+    border-radius: 8px;
+    border: white;
+}
+
+.user-create {
+    height: 30px;
+    background-color: skyblue;
+    color: white;
+    border-radius: 8px;
+    border: white;
+}
+
+.auth-entry {
+    margin-bottom: 10px;
+}
+
+.label-name {
+    display: block;
+}
+
+.input-field {
+    width: 260px;
 }
 
 @media (max-width: 640px) and (min-width: 320px) {

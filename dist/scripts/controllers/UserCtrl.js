@@ -7,16 +7,19 @@
                 username: this.username,
                 email: this.email,
                 password: this.password
-                };
+                };  $cookies.put('blocChatCurrentUser', this.username);
                 $uibModalInstance.close(user);
+                window.location.reload();
             } 
         };
+        
         this.newAccount = function() {
             var newAccountModal = $uibModal.open({
                 templateUrl: '/templates/newAccount.html',
                 controller: 'NewAccountCtrl',
                 controllerAs: 'new',
-                backdrop: 'static'
+                backdrop: 'static',
+                size: 'sm'
             });
             newAccountModal.result.then(function(userInfo) {
                 this.username = userInfo.username;
@@ -30,8 +33,8 @@
                 }).catch(function(error) {
                     console.log("Error: ", error);
                 });
-                var currentUser = $cookies.get('blocChatCurrentUser');
                 
+                currentUser = $cookies.get('blocChatCurrentUser');
             });
         };
     }

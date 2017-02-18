@@ -3,24 +3,24 @@
         <h4 class="modal-title">Create Account</h4>
     </div>
   <div class="modal-body">
-    <form name="NewAccount" ng-submit="new.validUser(NewAccount.$valid)">
-        <div>
-            <p>Username: </p>
-            <input type="text" ng-model="new.username" name="username" placeholder="Username">
+    <form name="NewAccount">
+        <div class="auth-entry">
+            <label class="label-name">Username: </label>
+            <input class="input-field" type="text" ng-model="new.username" name="username" placeholder="Username">
         </div>
-        <div>
-            <p>Email adddress: </p>
-            <input type="email" ng-model="new.email" name="email" placeholder="Email">
+        <div class="auth-entry">
+            <label class="label-name">Email adddress: </label>
+            <input class="input-field" type="email" ng-model="new.email" name="email" placeholder="Email">
         </div>
-        <div>
-            <p>Password: </p>
-            <input type="password" ng-model="new.password" name="password">
-        </div>
-        <div>
-            <button type="submit">Submit</button>
+        <div class="auth-entry">
+            <label class="label-name">Password: </label>
+            <input class="input-field" type="password" ng-model="new.password" name="password">
         </div>
     </form>
   </div>
   <div class="modal-footer">
+    <div>
+        <button class="user-submit" type="button" ng-click="new.validUser(NewAccount.$valid)">Submit</button>
+    </div>
   </div>
 </div>
