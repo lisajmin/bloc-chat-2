@@ -1,15 +1,26 @@
 ( function() {
     function UserCtrl($cookies, $firebaseAuth, $uibModalInstance, $uibModal) {
+        
+        var auth = $firebaseAuth();
+        
         var currentUser = $cookies.get('blocChatCurrentUser');
+
         this.validUser = function(userInfo) {
             if (userInfo) {
-                var user = {
-                username: this.username,
-                email: this.email,
-                password: this.password
-                };  $cookies.put('blocChatCurrentUser', this.username);
-                $uibModalInstance.close(user);
-                window.location.reload();
+                var currentUsername = this.username;
+                auth.$signInWithEmailAndPassword(this.email, this.password).then(
+                    function(firebaseUser) {
+                        $cookies.put('blocChatCurrentUser', currentUsername);
+                        
+                        alert("Successfully signed on as: " + currentUsername + "!");
+                        
+                        console.log("Logged on as: " + firebaseUser.uid);
+                        $uibModalInstance.close();
+                        window.location.reload();
+                        
+                }).catch(function(error) {
+                    alert(error);
+                });
             } 
         };
         
@@ -26,15 +37,20 @@
                 this.email = userInfo.email;
                 this.password = userInfo.password;
                 $cookies.put('blocChatCurrentUser', this.username);
-                var auth = $firebaseAuth();
                 auth.$createUserWithEmailAndPassword(this.email, this.password).then(
                 function(firebaseUser) {
+                    
+                    alert("Successfully created account!");
+                    
                     console.log("Created User with UID: " + firebaseUser.uid);
+                    
+                    $uibModalInstance.close();
+                    
+                    window.location.reload();
+                    
                 }).catch(function(error) {
-                    console.log("Error: ", error);
+                    console.log(error);
                 });
-                
-                currentUser = $cookies.get('blocChatCurrentUser');
             });
         };
     }
