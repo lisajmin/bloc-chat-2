@@ -2,19 +2,16 @@
     function UserCtrl($cookies, $firebaseAuth, $uibModalInstance, $uibModal) {
         
         var auth = $firebaseAuth();
-        
-        var currentUser = $cookies.get('blocChatCurrentUser');
 
         this.validUser = function(userInfo) {
             if (userInfo) {
-                var currentUsername = this.username;
                 auth.$signInWithEmailAndPassword(this.email, this.password).then(
                     function(firebaseUser) {
+                        
+                        var currentUsername = firebaseUser.displayName;
                         $cookies.put('blocChatCurrentUser', currentUsername);
                         
                         alert("Successfully signed on as: " + currentUsername + "!");
-                        
-                        console.log("Logged on as: " + firebaseUser.uid);
                         $uibModalInstance.close();
                         window.location.reload();
                         
@@ -33,16 +30,18 @@
                 size: 'sm'
             });
             newAccountModal.result.then(function(userInfo) {
-                this.username = userInfo.username;
+                
+                var newUser = userInfo.username;
                 this.email = userInfo.email;
                 this.password = userInfo.password;
-                $cookies.put('blocChatCurrentUser', this.username);
                 auth.$createUserWithEmailAndPassword(this.email, this.password).then(
                 function(firebaseUser) {
+                    firebaseUser.updateProfile({
+                        displayName: newUser
+                    });
+                    $cookies.put('blocChatCurrentUser', newUser);
                     
                     alert("Successfully created account!");
-                    
-                    console.log("Created User with UID: " + firebaseUser.uid);
                     
                     $uibModalInstance.close();
                     

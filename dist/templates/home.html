@@ -16,10 +16,10 @@
         <h3>{{ currentRoom.name }}</h3>
     </div>
     <div class="chat-window" scroll-glue="glued">
-    <div class="chat-messages" ng-repeat="message in messages">
-        <p class="user-info">{{message.sentAt | date:' MMM dd y, hh:mm a' }}</p>
-        <p> <span style="color:cadetblue; font-weight: bold;"> {{ message.username }}: </span>  {{ message.content }}</p>
-    </div>
+        <div class="chat-messages" ng-repeat="message in messages">
+            <p class="user-info">{{message.sentAt | date:' MMM dd y, hh:mm a' }}</p>
+            <p> <span style="color:cadetblue; font-weight: bold;"> {{ message.username }}: </span>  {{ message.content }}</p>
+        </div>
     </div>
     
     <div class="new-message">

@@ -23,10 +23,11 @@ section {
     width: 100%;
     position: relative;
     left: 200px;
+    height: 100%;
 }
 
 .chat-window {
-    height: 545px; 
+    height: 550px; 
     overflow: auto;
 }
 

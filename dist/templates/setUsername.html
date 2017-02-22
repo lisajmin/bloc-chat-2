@@ -5,16 +5,12 @@
   <div class="modal-body">
     <form name="SignIn">
         <div class="auth-entry">
-            <label class="label-name">Username:</label>
-            <input class="input-field" type="text" ng-model="user.username" name="username" placeholder="Username">
-        </div>
-        <div class="auth-entry">
             <label class="label-name">Email adddress:</label>
-                <input class="input-field" type="email" ng-model="user.email" name="email" placeholder="Email">
+                <input class="input-field" type="email" ng-model="user.email" name="email" placeholder="Email" required>
         </div>
         <div class="auth-entry">
             <label class="label-name">Password: </label>
-            <input class="input-field" type="password" ng-model="user.password" name="password">
+            <input class="input-field" type="password" ng-model="user.password" name="password" placeholder="password" required>
         </div>
     </form>
   </div>
