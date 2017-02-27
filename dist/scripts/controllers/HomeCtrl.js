@@ -1,9 +1,18 @@
 ( function() {
     function HomeCtrl($scope, Room, $cookies, $uibModal, Message) {
+
+        $scope.scrollBottom = function () {
+            var element = document.getElementById("chatwin");
+            var height = element.scrollHeight;
+            element.scrollTop = height - element.clientHeight;
+        };
+        
         $scope.roomList = Room.all;
         $scope.messages = {};
         $scope.currentRoom = null;
         $scope.currentUser = $cookies.get('blocChatCurrentUser');
+        
+        $scope.glued = true;
         
         $scope.setCurrentRoom = function(room) {
             $scope.currentRoom = room;
@@ -21,7 +30,6 @@
         $scope.sendMessage = function(room){
             Message.send($scope.newMessage, room.$id);
             $scope.newMessage = null;
-
         };
         
         $scope.logOut = function() {

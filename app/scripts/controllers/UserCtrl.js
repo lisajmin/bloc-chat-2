@@ -34,22 +34,23 @@
                 var newUser = userInfo.username;
                 this.email = userInfo.email;
                 this.password = userInfo.password;
-                auth.$createUserWithEmailAndPassword(this.email, this.password).then(
-                function(firebaseUser) {
-                    firebaseUser.updateProfile({
-                        displayName: newUser
+                this.confirmPassword = userInfo.confirmPassword;
+                if (this.password == this.confirmPassword) {
+                    auth.$createUserWithEmailAndPassword(this.email, this.password).then(
+                        function(firebaseUser) {
+                            firebaseUser.updateProfile({
+                                displayName: newUser
+                            });
+                            $cookies.put('blocChatCurrentUser', newUser);
+                            alert("Successfully created account!");
+                            $uibModalInstance.close();
+                            window.location.reload();
+                        }).catch(function(error) {
+                        console.log(error);
                     });
-                    $cookies.put('blocChatCurrentUser', newUser);
-                    
-                    alert("Successfully created account!");
-                    
-                    $uibModalInstance.close();
-                    
-                    window.location.reload();
-                    
-                }).catch(function(error) {
-                    console.log(error);
-                });
+                } else {
+                    alert("Password does not match. Please try again");
+                }
             });
         };
     }

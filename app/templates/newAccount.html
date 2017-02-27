@@ -14,7 +14,11 @@
         </div>
         <div class="auth-entry">
             <label class="label-name">Password: </label>
-            <input class="input-field" type="password" ng-model="new.password" name="password" placeholder="Required" required>
+            <input class="input-field" type="password" ng-model="new.password" name="password" placeholder="Minimum six characters" ng-keypress="($event.charCode==13)? new.validUser(NewAccount.$valid) : return" required>
+        </div>
+        <div class="auth-entry">
+            <label class="label-name">Confirm Password: </label>
+            <input class="input-field" type="password" ng-model="new.confirmPassword" name="confirmPassword" placeholder="Minimum six characters" ng-keypress="($event.charCode==13)? new.validUser(NewAccount.$valid) : return" required>
         </div>
     </form>
   </div>

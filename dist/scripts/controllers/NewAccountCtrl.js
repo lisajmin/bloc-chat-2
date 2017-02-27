@@ -3,9 +3,10 @@
         this.validUser = function(userInfo) {
             if (userInfo) {
                 var user = {
-                username: this.username,
-                email: this.email,
-                password: this.password
+                    username: this.username,
+                    email: this.email,
+                    password: this.password,
+                    confirmPassword: this.confirmPassword
                 };
                 $uibModalInstance.close(user);
             } 

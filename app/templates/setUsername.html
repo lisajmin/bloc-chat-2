@@ -10,7 +10,7 @@
         </div>
         <div class="auth-entry">
             <label class="label-name">Password: </label>
-            <input class="input-field" type="password" ng-model="user.password" name="password" placeholder="password" required>
+            <input class="input-field" type="password" ng-model="user.password" name="password" placeholder="password" ng-keypress="($event.charCode==13)? user.validUser(SignIn.$valid) : return" required>
         </div>
     </form>
   </div>

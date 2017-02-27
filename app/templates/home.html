@@ -15,15 +15,16 @@
     <div class="chat-name">
         <h3>{{ currentRoom.name }}</h3>
     </div>
-    <div class="chat-window" scroll-glue="glued">
+    <div class="chat-window" id="chatwin" scroll-glue>
         <div class="chat-messages" ng-repeat="message in messages">
             <p class="user-info">{{message.sentAt | date:' MMM dd y, hh:mm a' }}</p>
             <p> <span style="color:cadetblue; font-weight: bold;"> {{ message.username }}: </span>  {{ message.content }}</p>
+            <a id="bottom"></a>
         </div>
     </div>
     
     <div class="new-message">
-        <input type="text" class="message-box" ng-model="newMessage" placeholder="Write your message here..." ng-keypress="($event.charCode==13)? sendMessage(currentRoom) : return"/>
+        <input type="text" class="message-box" ng-model="newMessage" placeholder="Write your message here..." ng-keypress="($event.charCode==13)? sendMessage(currentRoom) : return" ng-change="scrollBottom()"/>
         <button class="message-button" ng-click="sendMessage(currentRoom)">Send</button>
     </div>
 </section>
